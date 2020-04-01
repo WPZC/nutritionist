@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Tables</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="../css/font-face.css" rel="stylesheet" media="all">
+    <link href="../vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="../vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="../vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="../vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- ../vendor CSS-->
+    <link href="../vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="../vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="../vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="../vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="../vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="../vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="../vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="../css/theme.css" rel="stylesheet" media="all">
+
+</head>
+
+<body class="animsition">
+<!-- MAIN CONTENT-->
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- DATA TABLE -->
+                    <h3 class="title-5 m-b-35">商品管理</h3>
+                    <div class="table-data__tool" id="toolbar">
+                        <!--<div class="table-data__tool-left">-->
+                        <!--<div class="rs-select4&#45;&#45;light rs-select4&#45;&#45;md">-->
+                        <!--<input type="text" style="background: #f5f5f5" placeholder="商品名称">-->
+                        <!--<button class="btn btn-success btn-sm">-->
+                        <!--<i class="zmdi zmdi-search"></i>查询</button>-->
+                        <!--</div>-->
+                        <!--&lt;!&ndash;<div class="rs-select2&#45;&#45;light rs-select2&#45;&#45;sm">&ndash;&gt;-->
+                        <!--&lt;!&ndash;&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                        <!--</div>-->
+                        <div class="table-data__tool-right">
+                            <button type="button" data-toggle="modal" data-target="#mediumModal" class="btn btn-success btn-sm">
+                                <i class="zmdi zmdi-plus"></i>添加商品</button>
+                            <button id="editmsg" style="display: none" type="button" data-toggle="modal" data-target="#mediumModa2" class="btn btn-success btn-sm">
+                                <i class="zmdi zmdi-plus"></i>用于触发编辑</button>
+                        </div>
+                    </div>
+                    <div class="table-responsive table-responsive-data2">
+                        <table id="mytab" class="table table-data2">
+                        </table>
+                    </div>
+                    <!-- END DATA TABLE -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal medium -->
+<div style="padding-top: 100px" class="modal fade" id="mediumModal" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel">添加商品</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-body card-block">
+                        <form action="/pc/addProduct" method="post" class="" enctype="multipart/form-data" id="productForm">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">商品名称</div>
+                                    <input type="text" id="priductname" name="sproduct" class="form-control">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">商品价格</div>
+                                    <input type="text" id="price" name="pprice" class="form-control">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-envelope"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">商品数量</div>
+                                    <input type="text" id="num" name="snumber" class="form-control">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-asterisk"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">折&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;扣</div>
+                                    <input type="text" id="discount" name="discount" class="form-control">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-asterisk"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">积&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分</div>
+                                    <input type="text" id="integration" name="integral" class="form-control">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-asterisk"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">是否上架</div>
+                                    <select name="isGrounding" id="select" class="form-control">
+                                        <option value="0">上架</option>
+                                        <option value="1">不上架</option>
+                                    </select>
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-asterisk"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">是否临期</div>
+                                    <select name="isMature" id="isMature" class="form-control">
+                                        <option value="0">不临期</option>
+                                        <option value="1">临期</option>
+                                    </select>
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-asterisk"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+
+                                    <div id="fileId" style='display: none'><!--//style='display: none'-->
+
+                                    </div>
+                                    <div id="img-con" class="panel panel-default imgdiv">
+                                    </div>
+                                    <div id="em" class='img-box uploadfile'></div>
+                                    <input id="file-multiple-input" class="form-control-file" type="button" value="上传图片" name="点击事件" onclick="inputClieck(1)"><br>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">关闭</button>
+                                <button type="button" class="btn btn-primary" id="upload">提交</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end modal medium -->
+<!-- modal medium -->
+<div style="padding-top: 100px" class="modal fade" id="mediumModa2" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel2">修改商品</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-body card-block">
+                        <form action="/pc/editProduct" method="post" class="" enctype="multipart/form-data" id="productForm2">
+                            <div class="form-group">
+                                <input id="productId" name="id" style="display: none">
+                                <div class="input-group">
+                                    <div class="input-group-addon">商品名称</div>
+                                    <input type="text" id="priductname2" name="sproduct" class="form-control">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">商品价格</div>
+                                    <input type="text" id="price2" name="pprice" class="form-control">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-envelope"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">商品数量</div>
+                                    <input type="text" id="num2" name="snumber" class="form-control">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-asterisk"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">折&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;扣</div>
+                                    <input type="text" id="discount2" name="discount" class="form-control">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-asterisk"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">积&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;分</div>
+                                    <input type="text" id="integration2" name="integral" class="form-control">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-asterisk"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">是否上架</div>
+                                    <select name="isGrounding" id="select2" class="form-control">
+                                        <option value="0">上架</option>
+                                        <option value="1">不上架</option>
+                                    </select>
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-asterisk"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">是否临期</div>
+                                    <select name="isMature" id="isMature2" class="form-control">
+                                        <option value="0">不临期</option>
+                                        <option value="1">临期</option>
+                                    </select>
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-asterisk"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+
+                                    <div id="fileId2" style='display: none'><!--//style='display: none'-->
+
+                                    </div>
+                                    <div id="img-con2" class="panel panel-default imgdiv">
+                                    </div>
+                                    <div id="em2" class='img-box uploadfile'></div>
+                                    <input id="file-multiple-input2" class="form-control-file" type="button" value="上传图片" name="点击事件" onclick="inputClieck(2)"><br>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close2">关闭</button>
+                                <button type="button" class="btn btn-primary" id="upload2">提交</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end modal medium -->
+<!-- Jquery JS-->
+<script src="../vendor/jquery-3.2.1.min.js"></script>
+
+<!-- Bootstrap JS-->
+<script src="../vendor/bootstrap-4.1/popper.min.js"></script>
+<script src="../vendor/bootstrap-4.1/bootstrap.min.js"></script>
+<!-- ../vendor JS       -->
+<script src="../vendor/slick/slick.min.js">
+</script>
+<script src="../vendor/wow/wow.min.js"></script>
+<script src="../vendor/animsition/animsition.min.js"></script>
+<script src="../vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+</script>
+<script src="../vendor/counter-up/jquery.waypoints.min.js"></script>
+<script src="../vendor/counter-up/jquery.counterup.min.js">
+</script>
+<script src="../vendor/circle-progress/circle-progress.min.js"></script>
+<script src="../vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="../vendor/chartjs/Chart.bundle.min.js"></script>
+<script src="../vendor/select2/select2.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.js"></script>
+
+<script src="https://unpkg.com/bootstrap-table@1.14.2/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+
+<!-- Main JS-->
+<script src="../js/main.js"></script>
+<!-- Form JS-->
+<script src="../js/jquery.form.js"></script>
+
+</body>
+<script>
+    $('#mytab').bootstrapTable({
+        method: 'POST',
+        url: "/pc/getAllProducts",//请求路径
+        toolbar: '#toolbar',//指定工具栏
+        striped: true, //是否显示行间隔色
+        pageNumber: 1, //初始化加载第一页
+        pagination: true,//是否分页
+        sidePagination: 'client',//server:服务器端分页|client：前端分页
+        search: true,
+        pageSize: 5,//单页记录数
+        pageList: [5, 10, 20, 30],//可选择单页记录数
+        showRefresh: false,//刷新按钮
+        columns: [{
+            title: 'id',
+            field: 'id',
+            visible: false
+        },{
+            title: '名称',
+            field: 'sproduct',
+            sortable: true
+        }, {
+            title: '数量',
+            field: 'snumber',
+            sortable: true
+        }, {
+            title: '价格',
+            field: 'pprice',
+        }, {
+            title: '折扣',
+            field: 'discount',
+        }, {
+            title: '积分',
+            field: 'integral',
+        }, {
+            title: '上架时间',
+            field: 'ontheshelfTime',
+        }, {
+            title: '操作',
+            field: 'publicationTime',
+            formatter: operation,//对资源进行操作
+        }],
+        locale:'zh-CN',//中文支持,
+    });
+
+    function operation(value, row, index) {
+        var htm = "<button class='btn btn-success btn-sm' onclick='deleteMsg(" + row["id"] + ")'>删除</button> " +
+            "<button class='btn btn-success btn-sm' onclick='editMsg(" + row["id"] + ")'>修改</button>"
+        return htm;
+    }
+
+    function deleteMsg(id) {
+
+        $.ajax({
+            type:"POST",
+            url:"/pc/deleteProduct",
+            data:{id:id},
+            success:function (data) {
+                if(data == '删除成功'){
+                    alert("删除成功")
+                    $("#mytab").bootstrapTable("refresh", {
+                        silent: true //静态刷新
+                    });
+                }
+            },
+            error:function (e) {
+                console.log(e)
+            }
+        })
+    }
+    function editMsg(id) {
+        $.ajax({
+            type:"POST",
+            url:"/pc/getProductInfo",
+            data:{id:id},
+            success:function (data) {
+
+                //清空缓存数据
+                $("#em2").empty();
+
+                //商品信息
+                var tbProductEntity = data["tbProductEntity"];
+                //商品图片信息
+                var tbProductPicEntities = data["tbProductPicEntities"];
+
+                console.log(data)
+                $("#priductname2").val(tbProductEntity["sproduct"])
+                $("#price2").val(tbProductEntity["pprice"])
+                $("#num2").val(tbProductEntity["snumber"])
+                $("#discount2").val(tbProductEntity["discount"])
+                $("#integration2").val(tbProductEntity["integral"])
+                $("#select2").val(tbProductEntity["isGrounding"])
+                $("#isMature2").val(tbProductEntity["isMature"])
+                $("#productId").val(tbProductEntity["id"])
+
+
+                //将商品图片添加到页面
+                for (var i = 0;i<tbProductPicEntities.length;i++){
+                    //http://localhost:7501/
+                    var a = createImg2(tbProductPicEntities[i]["ppicName"])
+
+                    $("#em2").append(a)
+                }
+
+                $("#editmsg").click();
+            },
+            error:function (e) {
+                console.log(e)
+            }
+        })
+    }
+
+    function createImg2(src) {
+
+        var newImg = document.createElement("img");
+        newImg.src="http://localhost:7501/"+src;
+        newImg.height=100;
+        newImg.width=100;
+
+        //box.append("<img src='" + src + "' height='100px' width='100px' onclick='showImagePopup(\"" + src + "\")'>");
+        return newImg;
+    }
+</script>
+<!--文件上传-->
+<script>
+
+    var inputArray = [];
+
+    function inputClieck(idnex) {
+        var newInput = document.createElement("input");
+        newInput.type = 'file';
+        newInput.name = "files";
+        var idid = new Date().getTime();
+        newInput.id = idid;
+        $("#fileId").append(newInput);
+        inputArray.push(idid);
+
+        $("#" + idid).click();
+
+
+        $("#" + idid).change(function (e) {
+            console.log('change事件', e);
+            console.log(this)
+            var path= getImgPath(this.files[0]);
+            console.log("--------"+path);
+
+            var arr = path.split("/");
+            var strPath='--------:null/'+arr[arr.length-1];
+            console.log(strPath)
+            var a=createImg(path,idid);
+            if (idnex == 1){
+                $("#em").append(a)
+            }else{
+                $("#fileId2").append(newInput);
+                $("#em2").append(a)
+            }
+
+
+        });
+        var newline = document.createElement("br");//创建一个BR标签是为能够换行！
+        $("#fileId").append(newline);
+    }
+
+    //动态显示上传图片
+    function uploadImg(path) {
+        var imgDiv = $("#img-con");
+        var $img = $("<img/>");
+        $img.attr("src", path);
+        imgDiv.append($img);
+    }
+
+
+
+
+    //获取要上传单张图片的本地路径
+    function getImgPath(file) {
+
+
+        var url = null;
+        if(window.createObjectURL != undefined) { // basic
+            url = window.createObjectURL(file);
+        } else if(window.URL != undefined) { // mozilla(firefox)
+            url = window.URL.createObjectURL(file);
+        } else if(window.webkitURL != undefined) { // webkit or chrome
+            url = window.webkitURL.createObjectURL(file);
+        }
+        return url;
+    }
+
+
+
+
+    function createImg(src,idid) {
+
+        var newImg = document.createElement("img");
+        newImg.src=src;
+        newImg.id="img"+idid;
+        newImg.height=100;
+        newImg.width=100;
+        newImg.onclick='showImagePopup(\"" + src + "\")';
+
+        //box.append("<img src='" + src + "' height='100px' width='100px' onclick='showImagePopup(\"" + src + "\")'>");
+        return newImg;
+    }
+
+    function showImagePopup(src) {
+        if (getClass(src) === "String") {
+            var popup = $("<img></img");
+            popup.addClass("image-popup").attr("src", src);
+            var shade = $("<div></div>").addClass("shade");
+            $(document.body).append(shade.append(popup));
+            shade.click(function () {
+                $(this).remove();
+            });
+            popup.fadeIn(200);
+            // popup.click(function() {
+            // window.event ? window.event.cancelBubble = true :
+            // window.event.stopPropagation();
+            // });
+        }
+    }
+</script>
+<!--提交-->
+<script>
+
+    //添加提交
+    $("#upload").click(function () {
+
+        $("#productForm").ajaxSubmit(function (data) {
+            console.log(data)
+            if (data == '添加成功'){
+                $("#close").click()
+                $("#mytab").bootstrapTable("refresh", {
+                    silent: true //静态刷新
+                });
+            }
+        })
+
+    })
+    //修改提交
+    $("#upload2").click(function () {
+
+        $("#productForm2").ajaxSubmit(function (data) {
+            console.log(data)
+            if (data == '修改成功'){
+                $("#close2").click()
+                $("#mytab").bootstrapTable("refresh", {
+                    silent: true //静态刷新
+                });
+            }
+        })
+
+    })
+
+    // function SubmitForm() {
+    //     $.ajax({
+    //         type:"POST",
+    //         url:"/pc/addProduct",
+    //         contentType: false,
+    //         processData:false,
+    //         data:$("#productForm").serialize(),
+    //         sunccess:function (data) {
+    //             console.log(data)
+    //         },
+    //         error:function (e) {
+    //             console.log(e)
+    //         }
+    //     })
+    // }
+</script>
+</html>
+<!-- end document-->

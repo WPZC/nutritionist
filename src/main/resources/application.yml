@@ -1,0 +1,39 @@
+server:
+  port: 7500
+  tomcat:
+    uri-encoding: UTF-8
+
+spring:
+  application:
+    name: lawyer
+  datasource:
+    name: db-base
+    url: jdbc:mysql://localhost:3306/springboot?serverTimezone=GMT%2B8
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+  http:
+    encoding:
+      force: true
+      charset: UTF-8
+      enabled: true
+  thymeleaf:
+    cache: false
+    encoding: UTF-8
+    check-template-location: true
+    mode: HTML5
+    prefix: classpath:/templates
+    suffix: .html
+    servlet:
+      content-type: text/html
+  main:
+    allow-bean-definition-overriding: true
+
+pic:
+  url: D:/temp-rainy/
+

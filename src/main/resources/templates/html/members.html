@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Tables</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="../css/font-face.css" rel="stylesheet" media="all">
+    <link href="../vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="../vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="../vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="../vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- ../vendor CSS-->
+    <link href="../vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="../vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="../vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="../vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="../vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="../vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="../vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="../css/theme.css" rel="stylesheet" media="all">
+
+</head>
+
+<body class="animsition">
+<!-- MAIN CONTENT-->
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- DATA TABLE -->
+                    <h3 class="title-5 m-b-35">会员管理</h3>
+                    <div class="table-data__tool" id="toolbar">
+                        <div class="table-data__tool-right">
+                            <button id="editmsg" style="display: none" type="button" data-toggle="modal" data-target="#mediumModa2" class="btn btn-success btn-sm">
+                                <i class="zmdi zmdi-plus"></i>用于触发编辑</button>
+                        </div>
+                    </div>
+                    <div class="table-responsive table-responsive-data2">
+                        <table id="mytab" class="table table-data2">
+                        </table>
+                    </div>
+                    <!-- END DATA TABLE -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal medium -->
+<div style="padding-top: 100px" class="modal fade" id="mediumModa2" tabindex="-1" role="dialog" aria-labelledby="mediumModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mediumModalLabel2">修改会员</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-body card-block">
+                        <form action="/mc/editmember" method="post" class="" enctype="multipart/form-data" id="productForm2">
+                            <div class="form-group">
+                                <input id="memberId" name="id" style="display: none">
+                                <div class="input-group">
+                                    <div class="input-group-addon">用户名</div>
+                                    <input type="text" id="username" name="username" class="form-control">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-user"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</div>
+                                    <input type="text" id="password" name="password" class="form-control">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-envelope"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">联系方式</div>
+                                    <input type="text" id="mobile" name="mobile" class="form-control">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-asterisk"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon">昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称</div>
+                                    <input type="text" id="displayName" name="displayName" class="form-control">
+                                    <div class="input-group-addon">
+                                        <i class="fa fa-asterisk"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close2">关闭</button>
+                                <button type="button" class="btn btn-primary" id="upload2">提交</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- end modal medium -->
+<!-- Jquery JS-->
+<script src="../vendor/jquery-3.2.1.min.js"></script>
+
+<!-- Bootstrap JS-->
+<script src="../vendor/bootstrap-4.1/popper.min.js"></script>
+<script src="../vendor/bootstrap-4.1/bootstrap.min.js"></script>
+<!-- ../vendor JS       -->
+<script src="../vendor/slick/slick.min.js">
+</script>
+<script src="../vendor/wow/wow.min.js"></script>
+<script src="../vendor/animsition/animsition.min.js"></script>
+<script src="../vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+</script>
+<script src="../vendor/counter-up/jquery.waypoints.min.js"></script>
+<script src="../vendor/counter-up/jquery.counterup.min.js">
+</script>
+<script src="../vendor/circle-progress/circle-progress.min.js"></script>
+<script src="../vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="../vendor/chartjs/Chart.bundle.min.js"></script>
+<script src="../vendor/select2/select2.min.js"></script>
+<script src="https://unpkg.com/bootstrap-table@1.14.2/dist/bootstrap-table.min.js"></script>
+
+<script src="https://unpkg.com/bootstrap-table@1.14.2/dist/locale/bootstrap-table-zh-CN.min.js"></script>
+
+<!-- Main JS-->
+<script src="../js/main.js"></script>
+<!-- Form JS-->
+<script src="../js/jquery.form.js"></script>
+
+</body>
+<script>
+    $('#mytab').bootstrapTable({
+        method: 'POST',
+        url: "/mc/getmembers",//请求路径
+        toolbar: '#toolbar',//指定工具栏
+        striped: true, //是否显示行间隔色
+        pageNumber: 1, //初始化加载第一页
+        pagination: true,//是否分页
+        sidePagination: 'client',//server:服务器端分页|client：前端分页
+        search: true,
+        pageSize: 5,//单页记录数
+        pageList: [5, 10, 20, 30],//可选择单页记录数
+        showRefresh: false,//刷新按钮
+        columns: [{
+            title: 'id',
+            field: 'id',
+            visible: false
+        },{
+            title: '用户名',
+            field: 'username',
+            sortable: true
+        }, {
+            title: '密码',
+            field: 'password',
+            sortable: true
+        }, {
+            title: '昵称',
+            field: 'displayName',
+        }, {
+            title: '联系方式',
+            field: 'mobile',
+        }, {
+            title: '卡号',
+            field: 'cardNo',
+        }, {
+            title: '会员等级',
+            field: 'level',
+        }, {
+            title: '创建时间',
+            field: 'createTime',
+        }, {
+            title: '操作',
+            field: 'publicationTime',
+            formatter: operation,//对资源进行操作
+        }],
+        locale:'zh-CN',//中文支持,
+    });
+
+    function operation(value, row, index) {
+        var htm = "<button class='btn btn-success btn-sm' onclick='deleteMsg(" + row["id"] + ")'>删除</button> " +
+            "<button class='btn btn-success btn-sm' onclick='editMsg(" + row["id"] + ")'>修改</button>"
+        return htm;
+    }
+
+    function deleteMsg(id) {
+
+        $.ajax({
+            type:"POST",
+            url:"/mc/deletemember",
+            data:{id:id},
+            success:function (data) {
+                if(data == '删除成功'){
+                    alert("删除成功")
+                    $("#mytab").bootstrapTable("refresh", {
+                        silent: true //静态刷新
+                    });
+                }
+            },
+            error:function (e) {
+                console.log(e)
+            }
+        })
+    }
+    function editMsg(id) {
+        $.ajax({
+            type:"POST",
+            url:"/mc/getmember",
+            data:{id:id},
+            success:function (data) {
+
+                console.log(data)
+
+                $("#username").val(data["username"])
+                $("#password").val(data["password"])
+                $("#mobile").val(data["mobile"])
+                $("#displayName").val(data["displayName"])
+                $("#memberId").val(data["id"])
+
+                $("#editmsg").click();
+            },
+            error:function (e) {
+                console.log(e)
+            }
+        })
+    }
+</script>
+<!--提交-->
+<script>
+
+
+    //修改提交
+    $("#upload2").click(function () {
+
+        $("#productForm2").ajaxSubmit(function (data) {
+            console.log(data)
+            if (data == '修改成功'){
+                $("#close2").click()
+                $("#mytab").bootstrapTable("refresh", {
+                    silent: true //静态刷新
+                });
+            }
+        })
+
+    })
+
+</script>
+</html>
+<!-- end document-->
